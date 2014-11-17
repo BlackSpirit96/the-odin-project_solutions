@@ -46,12 +46,12 @@ li {
   background-color: #F5F5F5;
 }
 
-#left {
+.left {
   position: absolute;
   left: 0px;
 }
 
-#right {
+.right {
   position: absolute;
   right: 0px;
 }
