@@ -1,4 +1,7 @@
 @import url("reset.css");
+body{
+	background-color: #989DA3;
+}
 #wraper {
     margin-top: 10px;
 }
