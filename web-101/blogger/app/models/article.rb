@@ -12,6 +12,14 @@ validates_attachment_content_type :image, :content_type => ["image/jpg", "image/
     end.join(", ")
   end
   
+  def increment_views
+    if self.views == nil
+      self.views = 0
+    else
+      self.views += 1
+    end
+  end
+  
   def tag_list=(tags_string)
     tag_names = tags_string.split(",").collect{|s| s.strip.downcase}.uniq
     new_or_found_tags = tag_names.collect { |name| Tag.find_or_create_by(name: name) }

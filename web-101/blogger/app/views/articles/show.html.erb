@@ -8,6 +8,11 @@
 </p>
 
 <p>
+  Views:
+  <%= @article.views %>
+</p>
+
+<p>
   <% if @article.image.exists? %>
     <%= image_tag @article.image.url(:medium) %><br />
   <% end %>

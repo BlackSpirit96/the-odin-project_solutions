@@ -4,10 +4,23 @@ class ArticlesController < ApplicationController
   
   def index
     @articles = Article.all
+    
+    respond_to do |format|
+      format.html
+      format.xml { render :xml => @articles.to_xml }
+    end
+    
   end
+  
+  def top
+    @articles = Article.order(views: :desc).first(3)
+  end
+  
   
   def show
     @article = Article.find(params[:id])
+    @article.increment_views
+    @article.save
     
     @comment = Comment.new
     @comment.article_id = @article.id
@@ -19,6 +32,7 @@ class ArticlesController < ApplicationController
   
   def create
     @article = Article.new(article_params)
+    @article.views = 0
     @article.save
     
     flash.notice = "The Article '#{@article.title}' have been created!"

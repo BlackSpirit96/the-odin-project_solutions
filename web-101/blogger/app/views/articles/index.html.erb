@@ -1,14 +1,5 @@
 <h1>All Articles</h1>
 
-<ul id="articles">
-  <% @articles.each do |article| %>
-    <li>
-      <%= link_to article.title, article_path(article), class: 'article_title' %>
-    </li>
-  <% end %>
-</ul>
+<%= render partial: 'show' %>
 
-<%= link_to "Create New Article", new_article_path, class: "new_article" %>
-
-<br />
-<%= link_to "Tag list", tags_path %>
+<link href="http://startup-box-156267.euw1-2.nitrousbox.com" rel="alternate" title="RSS" type="articles/rss+xml" />
